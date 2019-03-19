@@ -4,9 +4,10 @@ using UIKit;
 
 namespace MeusPedidosiOS
 {
-    public partial class DetailViewController : UIViewController
+    public partial class DetailViewController : UITableViewController
     {
         public object DetailItem { get; set; }
+        string[] nomes = { "Mac", "Jessica", "MiMi" };
 
         protected DetailViewController(IntPtr handle) : base(handle)
         {
@@ -26,10 +27,39 @@ namespace MeusPedidosiOS
 
         void ConfigureView()
         {
-            // Update the user interface for the detail item
-            if (IsViewLoaded && DetailItem != null)
-                detailDescriptionLabel.Text = DetailItem.ToString();
+
+            switch (DetailItem) 
+            {
+
+                case "Home":
+                    // Update the user interface for the detail item               
+
+
+                    break;
+
+                case "Carrinho":
+                    // Update the user interface for the detail item
+                   
+                    break;
+
+                case "Sobre o App":
+                    // Update the user interface for the detail item
+                   
+                    break;
+
+            }
+
+
         }
+
+        public override UITableView TableView { get => base.TableView; set => base.TableView = value; }
+
+        // Customize the number of sections in the table view.
+        public override nint NumberOfSections(UITableView tableView)
+        {
+            return 1;
+        }
+
 
         public override void ViewDidLoad()
         {
