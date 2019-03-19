@@ -34,7 +34,6 @@ namespace MeusPedidosiOS.Models
             tableView.DeselectRow(indexPath, true);
         }
             
-
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             // request a recycled cell to save memory

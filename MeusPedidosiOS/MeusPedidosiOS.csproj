@@ -159,6 +159,8 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="CustomAdapters\" />
+    <Folder Include="Delegate\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -199,6 +201,20 @@
     <Compile Include="Services\ConnectionService\ConnectionService.cs" />
     <Compile Include="Services\Data\CatalogDataService.cs" />
     <Compile Include="CustomAdapters\CustomCatalogCell.cs" />
+    <Compile Include="Delegate\AlertDelegateClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nophotoproduto.png" />
+    <BundleResource Include="Resources\logo%401x.png" />
+    <BundleResource Include="Resources\logo%402x.png" />
+    <BundleResource Include="Resources\logo%403x.png" />
+    <BundleResource Include="Images\ic_launcher.png" />
+    <BundleResource Include="Resources\baseline_reorder_black_18dp.png" />
+    <BundleResource Include="Resources\baseline_list_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
