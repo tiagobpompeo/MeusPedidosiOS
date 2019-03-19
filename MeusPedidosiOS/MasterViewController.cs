@@ -24,15 +24,19 @@ namespace MeusPedidosiOS
             Title = NSBundle.MainBundle.LocalizedString("Master", "Master");
 
             // Perform any additional setup after loading the view, typically from a nib.
-            NavigationItem.LeftBarButtonItem = EditButtonItem;
-
-            var addButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, AddNewItem);
-            addButton.AccessibilityLabel = "addButton";
-            NavigationItem.RightBarButtonItem = addButton;
+            //NavigationItem.LeftBarButtonItem = EditButtonItem;
+            //var addButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, AddNewItem);
+            //addButton.AccessibilityLabel = "addButton";
+            //NavigationItem.RightBarButtonItem = addButton;
 
             DetailViewController = (DetailViewController)((UINavigationController)SplitViewController.ViewControllers[1]).TopViewController;
 
             TableView.Source = dataSource = new DataSource(this);
+            dataSource.Objects.Insert(0, "Home");
+            dataSource.Objects.Insert(1, "Carrinho");
+            dataSource.Objects.Insert(2, "Sobre o App");
+            using (var indexPath = NSIndexPath.FromRowSection(0, 0))
+            TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
         }
 
         public override void ViewWillAppear(bool animated)
@@ -49,10 +53,11 @@ namespace MeusPedidosiOS
 
         void AddNewItem(object sender, EventArgs args)
         {
-            dataSource.Objects.Insert(0, DateTime.Now);
-
-            using (var indexPath = NSIndexPath.FromRowSection(0, 0))
-                TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
+            //dataSource.Objects.Insert(0, "Home");
+            //dataSource.Objects.Insert(1, "Carrinho");
+            //dataSource.Objects.Insert(2, "Sobre o App");
+            //using (var indexPath = NSIndexPath.FromRowSection(0, 0))
+                //TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
         }
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
@@ -63,9 +68,9 @@ namespace MeusPedidosiOS
                 var indexPath = TableView.IndexPathForSelectedRow;
                 var item = dataSource.Objects[indexPath.Row];
 
-                controller.SetDetailItem(item);
-                controller.NavigationItem.LeftBarButtonItem = SplitViewController.DisplayModeButtonItem;
-                controller.NavigationItem.LeftItemsSupplementBackButton = true;
+                controller.SetDetailItem(item);//nome da page
+                //controller.NavigationItem.LeftBarButtonItem = SplitViewController.DisplayModeButtonItem;
+                //controller.NavigationItem.LeftItemsSupplementBackButton = true;
             }
         }
 
